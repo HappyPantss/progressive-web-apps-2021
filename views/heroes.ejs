@@ -1,15 +1,14 @@
-<%- include ("./partials/head.ejs") %>
-
+<%- include ("./partials/head") %>
 
     <div class="overview">
         <div class="hero">
             <div class="profileStats">
                 <article>
                     <img id="icon" src="<%- postData.icon%>">
-                    <span><%- postData.prestige %><%- postData.level %></span>
-                    <span><%- postData.name %></span>
-                    <span><%- postData.gamesWon %></span>
-                    <span><%- postData.endorsement %></span>
+                    <span><%= postData.prestige %><%= postData.level %></span>
+                    <span><%= postData.name %></span>
+                    <span><%= postData.gamesWon %></span>
+                    <span><%= postData.endorsement %></span>
                 </article>
             </div>
         </div>
@@ -17,18 +16,17 @@
     <div>
         <div class="competitiveStats">
             <h1>Huidig competitief seizoen</h1>
-            <section class="heroSection">
-                <a href="#hero/${hero.name}">
+
+            <% heroes.forEach(function(hero) { %>
+                <a href="/heroes/<%= hero.name %>">
                     <article>
                         <h2>
-                            <%- postData.name %>
+                            <%= hero.name %>
                         </h2>
-                        <!-- <img src="https://d1u1mce87gyfbn.cloudfront.net/hero/${hero.name.replace(/([A-B])/g, '-$1').replace(/(\d+)/g, '-$1').toLowerCase()}/hero-select-portrait.png"> -->
+                        <img src="https://d1u1mce87gyfbn.cloudfront.net/hero/<%= hero.name.replace(/([A-B])/g, '-$1').replace(/(\d+)/g, '-$1').toLowerCase()%>/hero-select-portrait.png">
                     </article>
                 </a>
-            </section>
-            <!-- <section class="heroDetail">
-            </section> -->
+                <% }) %>
         </div>
     </div>
 

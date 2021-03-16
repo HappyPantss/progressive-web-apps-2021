@@ -1,6 +1,9 @@
-// Require third-party modules
-const express = require('express')
-const fetch = require('node-fetch')
+import cleanData from "./public/js/cleanNames.js";
+
+import express from "express";
+//const express = require('express')
+import fetch from "node-fetch";
+//const fetch = require('node-fetch')
 
 // Config object
 const config = {
@@ -11,43 +14,50 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 // Create a route for our overview page
 app.get('/', function(req, res) {
     res.redirect('/heroes');
 });
 
-// Create a overview route
-app.get('/heroes', function(req, res) {
-    fetch("https://ovrstat.com/stats/pc/Sergini-21678", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" }
-    })
+let userStats = []
 
-    .then(res => res.json())
-        .then(json =>
-            res.render('heroes', {
-                postData: json
-            }))
-        .catch(err => console.log(err))
+// Create a overview route
+app.get('/heroes', async function(req, res) {
+    userStats = await fetch("https://ovrstat.com/stats/pc/Sergini-21678", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                console.log(response)
+            }
+        })
+
+    //console.log(userStats)
+    const newUserData = await cleanData(userStats)
+
+    res.render("heroes.ejs", {
+        postData: newUserData,
+        heroes: newUserData.competitiveStats.topHeroes
+    })
 });
 
 // Create a detail route
-// app.get('/hero/:id', function(req, res) {
-//     fetch("https://jsonplaceholder.typicode.com/posts/" + req.params.id, {
-//         method: "GET",
-//         headers: { "Content-Type": "application/json" }
-//     })
+app.get('/heroes/:name', async function(req, res) {
+    userStats
 
-//     .then(res => res.json())
-//         .then(json =>
-//             res.render('post', {
-//                 title: 'Posts' + req.params.id,
-//                 postData: json
-//             }))
-//         .catch(err => console.log(err))
-// });
+    //console.log(userStats)
+    const newHeroData = await cleanData(userStats)
+
+    res.render("hero.ejs", {
+        postData: req.params.name,
+        heroes: newHeroData.competitiveStats.topHeroes
+    })
+});
 
 // Actually set up the server
 app.listen(config.port, function() {

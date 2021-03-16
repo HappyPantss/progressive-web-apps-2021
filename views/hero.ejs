@@ -1,12 +1,18 @@
-<%- include ("./partials/head.ejs") %>
+<%- include ("./partials/head") %>
 
-    <a href="/overview">back</a>
+    <a href="/">back</a>
     <h2>Hero</h2>
     <h1>
-        <%- postData.title %>
+        <%= postData %>
     </h1>
-    <p>
-        <%- postData.body %>
-    </p>
+    <section class="heroDetail">
+        <p>Games won: <span><%= postData.gamesWon %></span></p>
+        <p>Time played: <span><%= postData.timePlayed %></span></p>
+        <p>Eliminations per life: <span><%= postData.eliminationsPerLife %></span></p>
+        <p>Best multikill: <span><%= postData.multiKillBest %></span></p>
+        <p>Objective kills: <span><%= postData.objectiveKills %></span></p>
+        <p>Weapon accuracy: <span><%= postData.weaponAccuracy %></span></p>
+        <p>Win percentage: <span><%= postData.winPercentage %></span></p>
+    </section>
 
     <%- include ("./partials/footer.ejs") %>
