@@ -1,0 +1,15 @@
+{
+    "short_name": "OwStats",
+    "name": "Overwatch Profile Statistics",
+    "description": "Weather forecast information",
+    "icons": [{
+        "src": "/img/favicon.ico",
+        "type": "image/png",
+        "sizes": "256x256"
+    }],
+    "start_url": "/heroes",
+    "scope": "/heroes",
+    "display": "standalone",
+    "theme_color": "#f99e1a",
+    "background_color": "#f99e1a"
+}

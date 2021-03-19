@@ -1,18 +1,39 @@
 <%- include ("./partials/head") %>
 
-    <a href="/">back</a>
-    <h2>Hero</h2>
-    <h1>
-        <%= postData %>
-    </h1>
-    <section class="heroDetail">
-        <p>Games won: <span><%= postData.gamesWon %></span></p>
-        <p>Time played: <span><%= postData.timePlayed %></span></p>
-        <p>Eliminations per life: <span><%= postData.eliminationsPerLife %></span></p>
-        <p>Best multikill: <span><%= postData.multiKillBest %></span></p>
-        <p>Objective kills: <span><%= postData.objectiveKills %></span></p>
-        <p>Weapon accuracy: <span><%= postData.weaponAccuracy %></span></p>
-        <p>Win percentage: <span><%= postData.winPercentage %></span></p>
-    </section>
+    <!-- <a href="/">back</a> -->
+
+    <div class="overview">
+        <div class="hero">
+            <div class="profileStats">
+                <article>
+                    <img id="icon" src="<%- postData.icon%>">
+                    <span><%= postData.prestige %><%= postData.level %></span>
+                    <span><%= postData.name %></span>
+                    <span><%= postData.gamesWon %></span>
+                    <span><%= postData.endorsement %></span>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="competitiveStats">
+            <h1>Huidig competitief seizoen</h1>
+            <section class="heroDetail">
+                <h1>
+                    <%= hero.name %>
+                </h1>
+                <section class="heroDetail">
+                    <p>Games won: <span><%= hero.gamesWon %></span></p>
+                    <p>Time played: <span><%= hero.timePlayed %></span></p>
+                    <p>Eliminations per life: <span><%= hero.eliminationsPerLife %></span></p>
+                    <p>Best multikill: <span><%= hero.multiKillBest %></span></p>
+                    <p>Objective kills: <span><%= hero.objectiveKills %></span></p>
+                    <p>Weapon accuracy: <span><%= hero.weaponAccuracy %></span></p>
+                    <p>Win percentage: <span><%= hero.winPercentage %></span></p>
+                </section>
+
+            </section>
+        </div>
+    </div>
 
     <%- include ("./partials/footer.ejs") %>

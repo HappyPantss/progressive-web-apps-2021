@@ -48,16 +48,32 @@ app.get('/heroes', async function(req, res) {
 
 // Create a detail route
 app.get('/heroes/:name', async function(req, res) {
-    userStats
+    userStats = await fetch("https://ovrstat.com/stats/pc/Sergini-21678", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                console.log(response)
+            }
+        })
 
-    //console.log(userStats)
-    const newHeroData = await cleanData(userStats)
+    const newUserData = await cleanData(userStats)
+    const hero = newUserData.competitiveStats.topHeroes.find(hero => hero.name == req.params.name)
 
     res.render("hero.ejs", {
-        postData: req.params.name,
-        heroes: newHeroData.competitiveStats.topHeroes
+        postData: newUserData,
+        hero: hero,
     })
 });
+
+app.get('/offline', function(req, res) {
+    res.render('offline', {
+        pageTitle: 'Offline'
+    })
+})
 
 // Actually set up the server
 app.listen(config.port, function() {
