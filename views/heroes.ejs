@@ -4,7 +4,7 @@
         <div class="hero">
             <div class="profileStats">
                 <article>
-                    <img id="icon" src="<%- postData.icon%>">
+                    <img id="icon" src="<%- postData.icon%>" alt="Player Icon">
                     <span><%= postData.prestige %><%= postData.level %></span>
                     <span><%= postData.name %></span>
                     <span><%= postData.gamesWon %></span>
@@ -23,7 +23,7 @@
                         <h2>
                             <%= hero.name %>
                         </h2>
-                        <img src="https://d1u1mce87gyfbn.cloudfront.net/hero/<%= hero.name.replace(/([A-B])/g, '-$1').replace(/(\d+)/g, '-$1').toLowerCase()%>/hero-select-portrait.png">
+                        <img src="img/portraits/<%= hero.name.replace(/([A-B])/g, '-$1').replace(/(\d+)/g, '-$1').toLowerCase()%>.png" alt="<%= hero.name %> Portrait">
                     </article>
                 </a>
                 <% }) %>
