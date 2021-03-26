@@ -1,0 +1,99 @@
+.hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: bottom;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.profileStats {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: white;
+}
+
+.competitiveStats {
+    margin: 0 auto;
+    width: 70%;
+}
+
+div:nth-of-type(2) {
+    background: url(https://static.playoverwatch.com/img/crystal-candy-bg-top-e64823cff8.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #f6e9f0;
+    color: #333333;
+    display: flex;
+}
+
+div:nth-child(2) article {
+    background: url(https://static.playoverwatch.com/img/hero-portrait-detailed/hero-portrait-detailed-bg-c659e0b7f6.jpg) no-repeat;
+    background-repeat: no-repeat;
+    background-position: 0% 90%;
+    text-transform: uppercase;
+    font-family: 'Ranchers', cursive;
+    margin: .3rem .3rem;
+    float: left;
+    width: 180px;
+}
+
+div:nth-child(2) article h2 {
+    color: #d0d0dc;
+    letter-spacing: 2px;
+    text-align: center;
+    background: rgba(40, 53, 79, .9);
+}
+
+.heroDetail>h1 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: var(--secondary);
+}
+
+.heroDetail>p {
+    padding: 10px 10px 10px 0;
+    font-size: 1.3rem;
+}
+
+.heroDetail>p>span {
+    color: var(--primary);
+}
+
+.hide {
+    display: none;
+}
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader>img {
+    width: 300px;
+}
+
+.loader.hidden {
+    animation: fadeOut .3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
