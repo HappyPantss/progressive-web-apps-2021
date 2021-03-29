@@ -4,7 +4,8 @@
     --secondary: #FFD023;
     --logo2: #FFFFFF;
     --logo3: #4A4C4E;
-    --primaryFont: 'Roboto', sans-serif;
+    --customRoboto: 'Roboto', sans-serif;
+    --customRanchers: 'Ranchers', cursive;
 }
 
 * {
@@ -56,13 +57,13 @@ form button:hover {
 }
 
 .overview {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/gib.jpg");
+    background-image: url("../img/head-bg.jpg");
     height: 50%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    font-family: var(--primaryFont);
+    font-family: var(--customRoboto);
     font-weight: 700;
     display: flex;
     justify-content: center;
