@@ -6,9 +6,7 @@ import fetch from "node-fetch";
 //const fetch = require('node-fetch')
 
 // Config object
-const config = {
-    port: 3000
-}
+const port = 3000;
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -75,7 +73,11 @@ app.get('/offline', function(req, res) {
     })
 })
 
+app.listen(process.env.PORT || port, () =>
+    console.log(`Listening on port http://localhost:${port}`)
+);
+
 // Actually set up the server
-app.listen(config.port, function() {
-    console.log(`Application started on port: http://localhost:${config.port}`);
-});
+// app.listen(config.port, function() {
+//     console.log(`Application started on port: http://localhost:${config.port}`);
+// });
