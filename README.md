@@ -16,7 +16,7 @@
 * [Extra](https://github.com/HappyPantss/progressive-web-apps-2021#%EF%B8%8F-extra)
 # 🌍 Live version 
 This is the repository for frontend-applications CMD 2020/2021.
-Live version: https://happypantss.github.io/web-app-from-scratch-2021/
+Live version: https://owstats-pwa.herokuapp.com
 # 💬 Concept
 The idea of this website is that you can search for your account, and see some basic statistics from your Overwatch account. You can find your personal information like level, games won etc. And you can find some statistics about your heroes you played last season of competitive. Disclaimer: You have to play Overwatch to see your stats.
 # 🚀 Installation
