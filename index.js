@@ -35,7 +35,6 @@ app.get('/heroes', async function(req, res) {
             }
         })
 
-    //console.log(userStats)
     const newUserData = await cleanData(userStats)
 
     res.render("heroes.ejs", {
@@ -76,8 +75,3 @@ app.get('/offline', function(req, res) {
 app.listen(process.env.PORT || port, () =>
     console.log(`Listening on port http://localhost:${port}`)
 );
-
-// Actually set up the server
-// app.listen(config.port, function() {
-//     console.log(`Application started on port: http://localhost:${config.port}`);
-// });

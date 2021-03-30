@@ -3,7 +3,6 @@ const CORE_CACHE_NAME = `core-v${CORE_CACHE}`
 const CORE_ASSETS = ["/manifest.json", "/offline", "/css/all.css"]
 
 self.addEventListener('install', (event) => {
-    console.log("Installed")
     event.waitUntil(
         caches.open(CORE_CACHE_NAME)
         .then(cache => cache.addAll(CORE_ASSETS))
@@ -11,9 +10,7 @@ self.addEventListener('install', (event) => {
     )
 })
 
-self.addEventListener("activate", (event) => {
-    console.log("Activated")
-})
+self.addEventListener("activate", (event) => {})
 
 self.addEventListener("fetch", (event) => {
     event.respondWith(
